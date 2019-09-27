@@ -8,15 +8,15 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    get_recipe
   end
 
   def edit
-    @recipe = Recipe.find(params[:id])
+    get_recipe
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    get_recipe
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -34,6 +34,10 @@ class RecipesController < ApplicationController
   end
 
   private
+
+  def get_recipe
+    @recipe = Recipe.find(params[:id])
+  end
 
   def recipe_params
     params.require(:recipe).permit(:title, :ingredients, :description)
