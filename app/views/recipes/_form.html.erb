@@ -11,6 +11,12 @@
       </ul>
     </div>
   <% end %>
+
+  <p>
+    <%= form.label :category %><br>
+    <%= form.select :category, options_for_select(Recipe::RECIPE_CATEGORIES), include_blank: true %>
+  </p>
+
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>

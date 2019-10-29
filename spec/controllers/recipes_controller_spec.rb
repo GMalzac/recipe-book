@@ -11,7 +11,8 @@ if defined?(RecipesController)
         title: "Breaded fish",
         ingredients: "A fish, breadcrumbs, eggs, and flour",
         description: "Prepare the breading: Prep the breadcrumbs, eggs, and flour. Bread the fish. Bake in the oven",
-        author: "Mr Cook"
+        author: "Mr Cook",
+        category: "Desserts"
       }
     end
 
@@ -20,7 +21,8 @@ if defined?(RecipesController)
         title: nil,
         ingredients: nil,
         description: nil,
-        author: nil
+        author: nil,
+        category: nil
       }
     end
 
