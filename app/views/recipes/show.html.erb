@@ -1,4 +1,4 @@
-<h1><%= @recipe.title %></h1>
+<h1><%= @recipe.title %> - by <%= @recipe.author %></h1>
 <h2><%= @recipe.ingredients %></h2>
 <h2><%= @recipe.description %></h2>
 <%= link_to "Edit recipe", edit_recipe_path(@recipe)  %>

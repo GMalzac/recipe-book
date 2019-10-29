@@ -1,4 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :get_recipe, only: [:show, :edit, :update]
+
   def index
     @recipes = Recipe.all
   end
@@ -8,15 +10,12 @@ class RecipesController < ApplicationController
   end
 
   def show
-    get_recipe
   end
 
   def edit
-    get_recipe
   end
 
   def update
-    get_recipe
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -40,7 +39,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description)
+    params.require(:recipe).permit(:title, :ingredients, :description, :author)
   end
 
 end
