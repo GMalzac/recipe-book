@@ -1,13 +1,36 @@
-<h1>My recipes</h1>
-
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
-  <% end %>
-</ul>
-
-<%= link_to 'New recipe', new_recipe_path  %>
-
-<div data-controller="hello">
-  <h1 data-target="hello.output"></h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1466637574441-749b8f19452f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2428&q=80);">
+  <div class="container">
+    <h1>Les recettes de famille</h1>
+    <p>Pour des repas en toute légèreté</p>
+  </div>
 </div>
+
+<div class="container">
+  <div id="section-one">
+    <h2>Les recettes les plus récentes</h2>
+  </div>
+  <div id="section-two">
+    <h2>Un repas complet au hasard pour la 2 !</h2>
+  </div>
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'New recipe', new_recipe_path  %>
+
+  <div data-controller="hello">
+    <h1 data-target="hello.output"></h1>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
