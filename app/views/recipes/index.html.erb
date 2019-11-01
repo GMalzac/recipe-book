@@ -8,15 +8,20 @@
 <div class="container">
   <div id="section-one">
     <h2>Les recettes les plus récentes</h2>
+    <ul>
+      <% @recipes.last(3).each do |recipe| %>
+        <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
+      <% end %>
+    </ul>
   </div>
   <div id="section-two">
     <h2>Un repas complet au hasard pour la 2 !</h2>
+    <ul>
+      <% ["Entrées et apéros", "Plats principaux%", "Desserts"].each do |recipe_category| %>
+        <li><%= link_to "#{@recipes.category(recipe_category).random.title} - by #{@recipes.category(recipe_category).random.author}", recipe_path(@recipes.category(recipe_category).random) %></li>
+      <% end %>
+    </ul>
   </div>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
-    <% end %>
-  </ul>
 
   <%= link_to 'New recipe', new_recipe_path  %>
 
