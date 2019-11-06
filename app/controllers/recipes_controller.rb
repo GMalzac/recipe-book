@@ -32,6 +32,15 @@ class RecipesController < ApplicationController
     end
   end
 
+  def home
+    @recipes = Recipe.all
+  end
+
+  def category
+    @recipes = Recipe.category(params[:category])
+    render 'index'
+  end
+
   private
 
   def get_recipe

@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  get 'recipes', to: 'recipes#index'
-    resources :recipes
+  resources :recipes do
+    collection do
+      get 'entrees-aperos' => 'recipes#category', category: 'Entrées et Apéros', as: :entreesetaperos
+      get 'platsprincipaux' => 'recipes#category', category: 'Plats principaux%', as: :platsprincipaux
+      get 'desserts' => 'recipes#category', category: 'Desserts', as: :desserts
+    end
+  end
 
-  root 'recipes#index'
+  root 'recipes#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
