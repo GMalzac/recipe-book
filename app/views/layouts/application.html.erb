@@ -12,7 +12,8 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
+    <%= render 'shared/navbar' %>
+    <%= render 'shared/flashes' %>
 
     <%= yield %>
     <%= javascript_pack_tag "application" %>
