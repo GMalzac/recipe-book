@@ -3,20 +3,25 @@ class RecipesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :home, :show, :category, :get_recipe, :recipe_params]
 
   def index
-    @recipes = Recipe.all
+    @recipes = policy_scope(Recipe).order(created_at: :asc)
+    authorize @recipes
   end
 
   def new
-    @recipe = Recipe.new
+    @recipe = Recipe.new(user: current_user)
+    authorize @recipe
   end
 
   def show
+    authorize @recipe
   end
 
   def edit
+    authorize @recipe
   end
 
   def update
+    authorize @recipe
     if @recipe.update(recipe_params)
       redirect_to @recipe
     else
@@ -26,6 +31,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @recipe.user = current_user
+    authorize @recipe
     if @recipe.save
       redirect_to @recipe
     else
@@ -35,10 +42,12 @@ class RecipesController < ApplicationController
 
   def home
     @recipes = Recipe.all
+    authorize @recipes
   end
 
   def category
     @recipes = Recipe.category(params[:category])
+    authorize @recipes
     render 'index'
   end
 
@@ -49,7 +58,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category)
+    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category, :user)
   end
 
 end
