@@ -4,6 +4,8 @@ class Recipe < ApplicationRecord
   validates :title, :ingredients, :description, :author, presence: true
   validates :category, inclusion: { in: RECIPE_CATEGORIES }
 
+  belongs_to :user
+
   scope :latest, ->(number) { last("?", number) }
   scope :category, ->(category) { where("category LIKE ?", category) }
   scope :random, -> { order('RANDOM()').first }
