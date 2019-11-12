@@ -1,7 +1,10 @@
 puts "Cleaning database"
 Recipe.destroy_all
+User.destroy_all
 
 puts "Creating recipes"
+
+initial_publisher = User.create!(email: 'greg@recettes.com', username: "Greg", password: "123456", password_confirmation: "123456")
 
 RECIPES = [
   { title: "Foie Gras",
@@ -755,5 +758,8 @@ Cuire à four préchauffé à 150° (th.5) pendant 25 à 30 minutes",
 ]
 
 RECIPES.each do |recipe|
-  Recipe.create!(recipe)
+  Recipe.new(recipe).tap do |r|
+    r.user = initial_publisher
+    r.save!
+  end
 end
