@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
   validates :category, inclusion: { in: RECIPE_CATEGORIES }
 
   belongs_to :user
+  belongs_to :category
 
   scope :latest, ->(number) { last("?", number) }
   scope :category, ->(category) { where("category LIKE ?", category) }
