@@ -1,10 +1,32 @@
 puts "Cleaning database"
 Recipe.destroy_all
+Category.destroy_all
 User.destroy_all
 
-puts "Creating recipes"
+puts "Creating categories"
+
+CATEGORIES = ["Entrées et apéros", "Plats principaux végétariens", "Plats principaux de viande", "Plats principaux de poisson", "Desserts"]
+
+CATEGORIES.each do |category|
+  Category.create!(name: category)
+end
+
+ENTREE = Category.find_by(name: "Entrées et apéros" )
+PLAT_VEG = Category.find_by(name: "Plats principaux végétariens" )
+PLAT_VIANDE = Category.find_by(name: "Plats principaux de viande" )
+PLAT_POISSON = Category.find_by(name: "Plats principaux de poisson" )
+DESSERT = Category.find_by(name: "Desserts" )
+
+p "========================================================================="
+
+puts "Creating initial publisher"
 
 initial_publisher = User.create!(email: 'greg@recettes.com', username: "Greg", password: "123456", password_confirmation: "123456")
+
+
+p "========================================================================="
+
+puts "Creating recipes"
 
 RECIPES = [
   { title: "Foie Gras",
@@ -16,7 +38,7 @@ RECIPES = [
     Bain marie à four fort (thermo 7 ou 8) pendant plus ou moins 15 min. Baisser une fois fondu.
     Puis 1h à thermo 5.
     S’il fond trop vite, le baisser à four ouvert. Refroidir à l’extérieur.",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Pâte à choux pour gougères",
     author: "Marilou",
@@ -29,7 +51,7 @@ RECIPES = [
 La pâte doit être comme un ruban.
 Rajouter ensuite le gruyère.
 Faire des petits tas à la cuillère  et faire cuire à four chaud, jusqu’à que ce soit gonflé et doré.",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Pain de poisson ",
     author: "?",
@@ -42,7 +64,7 @@ Faire des petits tas à la cuillère  et faire cuire à four chaud, jusqu’à q
     description: "Faire cuire le riz et le poisson bouilli à part.
 Hacher le poisson, mélanger le riz au pain trempé et mettre une bonne pincée de safran.
 Beurrer un plat et mettre au four",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Pain de Gêne délicieux",
     author: "Bonne Maman",
@@ -53,7 +75,7 @@ Mettre le tout dans un moule bien beurré et entourer de chapelure.
 Faire cuire 1h30 au bain marie.
 Une fois démoulé, le servir entouré d’une sauce béchamel dans laquelle on met l’intérieur de coquilles, moules, truffes et champignons de Paris.
 On peut aussi, et cela est supérieur, entourer le moule de tranches d’un bon jambon d’York. Alors on lui donne le nom de Pain d’York. ",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Salade de Pâques à la Mazamétaine",
     author: "Manou",
@@ -72,7 +94,7 @@ Ajouter vinaigre, éventuellement un peu d’huile, pas de sel.
 Réserver au frais
 Servir avec les œufs durs coupés en 4.
 ",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Pain de crabe (pour 8 personnes)",
     author: "Marilou",
@@ -83,7 +105,7 @@ Servir avec les œufs durs coupés en 4.
     • Herbes variées (ciboulette, persil)",
     description: "Tout mélanger délicatement et mettre dans un moule à Baba, au frais plusieurs heures.
 Servir avec un gaspacho. ",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Verrines au parmesan",
     author: "Flo",
@@ -92,7 +114,7 @@ Servir avec un gaspacho. ",
     •  ½ verre de lait",
     description: "Une fois fondu, ajouter 15g de poudre d’amande
 Mélanger avec le gaspacho ",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Aubergines en béchamel",
     author: "Bonne Maman",
@@ -103,7 +125,7 @@ Les faire roussir à l’huile dans la poêle.
 Faire une béchamel sans fromage, ajouter persil et très peu d’ail et l’intérieur des aubergines que l’on fait cuire à part dans le beurre.
 Mélanger le tout, en farcir les aubergines et couvrir de chapelure.
 Mettre au four.",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Pain de lotte",
     author: "?",
@@ -112,7 +134,7 @@ Mettre au four.",
     • 4 cuillères à soupe de crème fraiche
     • 3 cuillères à soupe de concentré de tomates",
     description: "Tout mélanger et faire cuire au bain marie dans un moule à cake ou à baba",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Vol au vent",
     author: "?",
@@ -121,7 +143,7 @@ Mettre au four.",
 Faire un roux blond. Mouiller d’un bon bouillon dégraissé et d’un demi-verre de Madère.
 Laisser cuire tout doucement.
 Avant de verser dans la croute, lier avec un jaune d’œuf. ",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Galantine de volaille en terrine",
     author: "Bonne Maman et de Mamy",
@@ -135,7 +157,7 @@ Bien mélanger le tout.
 Mettre alors la peau dans la terrine. Mettre, en pressant avec les doigts, un peu de farce, puis un filet, un peu de sel sur le filet, un peu de lard en petites lamelles, truffes, foie d’oie.
 Terminer par de la farce et couvrir le tout avec la peau de la poule.
 Faire cuire 3h.",
-    category: "Entrées et apéros"
+    category: ENTREE
   },
   { title: "Gnocchis à la semoule",
     author: "Manou et Moucky",
@@ -148,7 +170,7 @@ Rajouter 2 jaunes d’œuf.
 Faire une béchamel : fondre 80 gr de beurre, rajouter 60 gr de farine et faire bien cuire l’ensemble. Rajouter ensuite le ½ de lait.
 Dans un plat beurré, faire des petits tas à la cuillère à soupe, mettre la béchamel au-dessus, un peu de crème et le gruyère.
 Au four pour que ça gratine.",
-    category: "Plats principaux végétariens"
+    category: PLAT_VEG
   },
   { title: "Purée de carottes",
     author: "James de Coquet",
@@ -158,7 +180,7 @@ Les mettre en purée, puis sur le feu pour les dessécher.
 Ajouter 4 cuillère à soupe de crème, du beurre et du comté râpé.
 Travailler jusqu’à ce que ça fasse un ruban.
 Mettre dans de grands moules individuels, chapeauter de crème fouettée et mettre à four  chaud pour que ça dore et glace. ",
-    category: "Plats principaux végétariens"
+    category: PLAT_VEG
   },
   { title: "Beignets au fromage",
     author: "Bonne Maman",
@@ -176,7 +198,7 @@ Mettre sur le feu une poêle avec beaucoup d’huile, et mettre dans la friture 
 Quand la pâte est bien réussie, ils se retournent seuls dans la poêle.
 Egoutter en mettant les beignets dans une passoire.
 Servir chaud !",
-    category: "Plats principaux végétariens"
+    category: PLAT_VEG
   },
   { title: "Pâte levée  pour tarte aux Maroilles",
     author: " Moucky",
@@ -191,7 +213,7 @@ Servir chaud !",
 Faire lever un peu au chaud.
 Rajouter un Maroilles coupé en morceaux, plus de la crème fraîche.
 Au four pour que la pâte soit bien levée et dorée",
-    category: "Plats principaux végétariens"
+    category: PLAT_VEG
   },
   { title: "Daube de bœuf",
     author: "?",
@@ -209,7 +231,7 @@ Recouvrir de bon vin rouge. Le Genentière fût est parfait.
 Ajouter le bouquet garni et les couennes.
 Saler, poivrer, ajouter gousse d’ail entière.
 Cuisson à feu doux couvert. Fermer hermétiquement et laisser cuire 3 à 4h",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Daube de sanglier",
     author: "Manou et de Moucky",
@@ -231,7 +253,7 @@ Rajoute encore une louche de bouillon déjà préparé.
 Laisser cuire à feu moyen. Saler.
 Cuire minimum 2h avec un couvercle.
 Rajouter du potage si nécessaire (surtout pas de la marinade qui doit toujours cuire !)",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Poularde à la crème",
     author: "Manou",
@@ -246,7 +268,7 @@ Mettre la sauce sur la poule découpée.
 Servir avec du riz
 On peut farcir la poularde avec du veau haché, du persil et un œuf.
 Faire un potage avec des perles du japon ou du vermicelle.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Poulet au riz",
     author: "Mamie",
@@ -258,7 +280,7 @@ Ajouter 2 cuillères à soupe de riz par personne et faire cuire en remuant.
 Ajouter les morceaux de poulet et les recouvrir d’eau.
 Faire cuire 20min.
 La consistance du riz est comme celui de la paella.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Blanquette d’agneau",
     author: "?",
@@ -271,7 +293,7 @@ Ajouter un bouquet garni et un une gousse d’ail.
 Faire une petite mayonnaise avec 3 jaunes d’œufs puis lier hors feu la sauce.
 Faire attention de ne pas brosser la sauce en laissant sur le feu.
 Ajouter vinaigre et citron",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Lapin Lardorel ",
     author: "Manou",
@@ -280,7 +302,7 @@ Ajouter vinaigre et citron",
 Couvrir ensuite le lapin de beaucoup d’oignons et faire suer sans dorer. Couvrir et ne pas remuer jusqu’à la fin.
 Faire une persillade, avec de l’ail et du persil, y rajouter le foie cru haché, cornichons coupés fins puis vinaigre
 Déglacer le lapin avec cette persillade",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Lapin en sauce Saupiquet ",
     author: "Manou",
@@ -296,7 +318,7 @@ Cuire ½ heure.
 Au dernier moment, ajouter le foie du lapin sauvage haché, vinaigre, 1 ou 2 cornichons haché(s).
 Ajouter un peu de jus maigre du lapin en fin de cuisson.
 Ajouter sel, poivre, persil et genièvre.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Canard aux olives",
     author: "Manou",
@@ -314,7 +336,7 @@ Servir ave la purée d’olive noires :
     • 1 kg de pommes de terre
     • lait et huile d’olive pour la purée
     • rajouter 250 gr d’olives noires CONFITES à la grecque mixées.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Civet de lièvre",
     author: "?",
@@ -329,7 +351,7 @@ Ajouter tout cela et mettre à cuire tout doucement thermostat 5 à 6 suivant l�
 A la fin de la cuisson, lier la sauce avec le foie haché, additionnée de sang qu’on aura eu soin de recueillir et auquel on aura ajouté une cuillérée de vinaigre.
 Si la sauce est trop claire, la lier avec peu de farine en supplément.
 Certains y ajoutent quelques cuillérées de crème fraiche quand la sauce est un peu forte, facultatif et au goût de chacun.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Beignets de cervelle",
     author: "Bonne Maman",
@@ -344,7 +366,7 @@ Monter les jaunes d’œufs puis rajouter peu à peu la farine pour faire une pa
 Mélanger délicatement la pate et mettre un peu de pâte, un peu de cervelle ; faire frire les beignets dans la friture bouillante.
 Quand les beignets sont dorés d’un côté, les retourner, puis les égoutter dans une passoire avec papier absorbant.
 Au moment de faire cuire les beignets, monter les blancs d’œufs en neige.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Croquettes de viande ",
     author: "Maria",
@@ -353,7 +375,7 @@ Au moment de faire cuire les beignets, monter les blancs d’œufs en neige.",
 Mélanger le tout, laisser reposer jusqu’au lendemain
 Faire des petites boules, fariner, puis chapelure puis œuf battu
 Friture bouillante, et penser à égoutter.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Cassoulet",
     author: "Bonne Maman et de Moucky",
@@ -377,7 +399,7 @@ Rajouter de l’eau si nécessaire.
 Il est préférable de mettre le confit en fin de cuisson (1/4 d’heure)
 Saler à votre goût.
 Les couennes doivent être entièrement débarrassées de la graisse, blanchies et coupées en morceau.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Ni Gou Yeng",
     author: "Flo",
@@ -398,7 +420,7 @@ Mélanger avec le porc, l’ananas (le tout).
 Environ 10 minutes de cuisson.
 Ne pas trop faire cuire la première fois si vous réchauffer.
 Servir avec riz.",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Chorba algérien",
     author: "Flo",
@@ -415,7 +437,7 @@ Servir avec riz.",
 Environ ½ heure puis mixer le tout
 Ajouter du citron avant la fin, puis les boulettes, les pois chiches et le boulghour
 Finissez par la coriandre",
-    category: "Plats principaux de viande"
+    category: PLAT_VIANDE
   },
   { title: "Morue salée sèche ",
     author: "Xinha",
@@ -429,7 +451,7 @@ Finissez par la coriandre",
     description: "Laisser la morue salée 14h dans de l’eau, changer d’eau une fois
 Dans un pyrex, mélanger tous les autres ingrédients
 Au four 1h30",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Sauce hollandaise à servir avec un turbot poché ou un loup en croute de sel",
     author: "Bonne Maman",
@@ -441,7 +463,7 @@ La sauce Hollandaise ne doit pas être liquide
 Mettre ½ citron.
 Bain marie sans bouillir.
 Maintenir au chaud ainsi. ",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Baudroie en Bourride",
     author: "Manou",
@@ -458,7 +480,7 @@ Ajouter eau + vin blanc et cuire ½ heure.
 Mayonnaise 4 jaunes (+huile) au dernier moment.
 NE PAS FAIRE BOUILLIR
 Servir avec des pommes de terre",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Pain de Lotte",
     author: "Manou",
@@ -470,7 +492,7 @@ Servir avec des pommes de terre",
     description: "Bien faire égoutter la lotte cuite et coupée en gros morceaux dans une passoire.
 Mélanger les œufs la crème fraiche, deux cuillères à soupe de concentré et un peu de kirsch
 Rajouter la lotte et faire cuire au bain marie dans un moule à cake.",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Lotte",
     author: "Manou",
@@ -480,7 +502,7 @@ Rajouter la lotte et faire cuire au bain marie dans un moule à cake.",
 - Ajouter éventuellement coquillages + champignons
 - Peler 3 tomates ; Garder la pulpe. Mélanger à la sauce + estragon.
          Servir avec pâtes fraiches",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Soles normandes",
     author: "Manou et Bonne Maman",
@@ -510,7 +532,7 @@ Verser cette sauce sur les filets de sole.
 Faire une béchamel avec moules, coquilles, crevettes, champignons et truffes
 Napper le pain démoulé.
 ",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Terrine aux deux saumons ",
     author: "Marie Laure",
@@ -520,7 +542,7 @@ Napper le pain démoulé.
 Rajouter 150 gr de beurre ramolli, un œuf entier, citron, sel et poivre.
 Mettre au frais une nuit.
 Servir avec, crème fraiche et ciboulette, ou mayo. ",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Soupe de poissons ",
     author: "?",
@@ -531,7 +553,7 @@ Hacher un oignon et le faire revenir vivement dans l’huile d’olive ainsi qu�
 Ajouter environ deux litres d’eau, y mettre quelques légumes comme pour le pot au feu, une branche de thym, une feuille de laurier, un peu de safran.
 Laisser bouillir le tout 20 minutes à gros bouillons. Passer la mixture ainsi obtenue au moulin à légumes. Si la soupe n’est pas assez onctueuse, ajouter 1 ou 2 cuillérées de crème de riz.
 Il faut que la soupe ait la consistance d’une béchamel légère.",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Bouillabaisse",
     author: "?",
@@ -559,7 +581,7 @@ Cuire 20 minutes.
 Feu vif au début, doux à la fin, liaison si l’on désire.
 
 *  Crabes, langoustine, langouste : 10 minutes de cuisson dans l’eau salée avant",
-    category: "Plats principaux de poisson"
+    category: PLAT_POISSON
   },
   { title: "Beignets soufflés",
     author: "?",
@@ -570,7 +592,7 @@ Remettre la casserole sur le feu sans cesser de remuer afin de la dessécher un 
 La laisser jusqu’à ce que la pâte n’adhère plus à la spatule.
 A ce moment, sortir la casserole du feu et sans attendre, ajouter successivement 4 œufs frais entiers en les incorporant l’un après l’autre, ajouter le dernier blanc monté en neige.
 Laisser reposer la pâte. Mettre gros comme des noix de pâte dans la friture modérément chaude. Egoutter et servir chaud. Saupoudrer de sucre.   ",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Gratin de fruits rouges",
     author: "Manou",
@@ -585,7 +607,7 @@ Chauffer fort le grill du four.
 Mélanger le jaunes d’œufs, la crème, le sucre vanillé + 2 cuillères d’eau et faire cuire doucement l’ensemble dans une casserole à fond épais, il faut que ce soit épais comme une crème pâtissière.
 Napper les fruits bien égouttés avec cette crème et mettre au grill le temps que ca dore, 3/5 minutes.
 Servir tout de suite",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Gâteau au chocolat",
     author: "Fifi",
@@ -599,7 +621,7 @@ Servir tout de suite",
 Mélanger sucre roux, œufs, farine. Mixer le tout jusque ce soit mousseux.
 Tout mélanger.
 Faire cuire 15min à four 205°C.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Vacherin à la vanille ",
     author: "Manou",
@@ -616,7 +638,7 @@ Mélanger le tout à la fourchette.
 Intercaler dans un moule rond la meringue écrasée et les mélanger.
 Mettre au congélateur.
 Servir avec du chocolat fondu et de la chantilly ou avec des fruits rouges, des kiwis, etc…",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Pommes",
     author: "Fifi",
@@ -625,7 +647,7 @@ Servir avec du chocolat fondu et de la chantilly ou avec des fruits rouges, des 
     • ¼ L d’eau
     • Zeste citron ",
     description: "Faire cuire ensemble à la casserole jusqu’à obtention d’une compote. Laisser quelques morceaux.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Malakoff",
     author: "Fifi",
@@ -635,7 +657,7 @@ Monter 12 blancs d’œuf.
 Faire beaucoup de caramel, 20 morceaux de sucre à peine mouillés.
 Quand c’est très chaud (bouilli), consistance caramel rajouter aux blancs d’œuf et continuer à fouetter.
 Servir avec la crème à la vanille.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Flan à la noix de Coco",
     author: "Fifi",
@@ -651,7 +673,7 @@ Monter les blancs d’œufs en neige.
 Mélanger les deux.
 Mettre au bain marie chaud ½ heure thermostat 7.
 Mettre plus chaud puis baisser.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Petits fours à la noix de coco",
     author: "?",
@@ -664,7 +686,7 @@ Mettre plus chaud puis baisser.",
     description: "Travailler les œufs avec le sucre, y ajouter la noix de coco, la farine et le lait.
 Faire des petits tas, y mettre des petits morceaux de cerises confites.
 Four à Th 6 environ ½ heure, à surveiller.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Petits fours aux amandes",
     author: "?",
@@ -674,7 +696,7 @@ Four à Th 6 environ ½ heure, à surveiller.",
     • Un peu d’écorce d’orange confite, hachée très menu",
     description: "Tout mélanger puis, rouler dans les amandes effilées. Passer du lait au pinceau.
 Mettre à four chaud pendant 10min.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Tarte flamande",
     author: "?",
@@ -690,7 +712,7 @@ Ajouter dessus 3 poires ou pommes coupées minces.
 Mettre à four Th 7 ou 8 un quart d’heure.
 Préparer une crème avec 80gr de beurre ramolli, 3 cuillérées de sucre, un œuf. Mettre dessus.
 Cuire ¼ d’heure de plus.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Tarte au citron",
     author: "Maria",
@@ -707,7 +729,7 @@ Cuire ¼ d’heure de plus.",
     • Le jus de 3 citrons",
     description: "Faire la crême au citron au bain marie
 Faire cuire la pâte puis rajouter la crème quand tout est bien froid.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Fudge",
     author: "Fifi",
@@ -719,7 +741,7 @@ Faire cuire la pâte puis rajouter la crème quand tout est bien froid.",
 Faire cuire à gros bouillon de 15 à 20 min avec 1 cuillère en bois.
 Quand le sucre se détache, ôter du feu et remuer
 Laisser refroidir",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Baba au rhum",
     author: "Manou",
@@ -739,7 +761,7 @@ Préparer le sirop.
 Remettre le baba dans le moule, l’imprégner petit à petit de sirop chaud.
 Ne le démouler qu’avant le repas.
 Ajouter de la chantilly et des fruits rouges selon les goûts.",
-    category: "Desserts"
+    category: DESSERT
   },
   { title: "Les Mazamétains",
     author: "?",
@@ -753,7 +775,7 @@ Ajouter de la chantilly et des fruits rouges selon les goûts.",
 Ajouter le beurre et le sucre vanillé.
 Verser la préparation au 3/4 dans des petits moules (type financiers ou muffins).
 Cuire à four préchauffé à 150° (th.5) pendant 25 à 30 minutes",
-    category: "Desserts"
+    category: DESSERT
   },
 ]
 
@@ -763,3 +785,7 @@ RECIPES.each do |recipe|
     r.save!
   end
 end
+
+
+
+
