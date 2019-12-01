@@ -1,4 +1,5 @@
 require 'rails_helper'
+
 begin
   require "recipes_controller"
 rescue LoadError
@@ -12,7 +13,6 @@ if defined?(RecipesController)
         ingredients: "A fish, breadcrumbs, eggs, and flour",
         description: "Prepare the breading: Prep the breadcrumbs, eggs, and flour. Bread the fish. Bake in the oven",
         author: "Mr Cook",
-        category: "Desserts"
       }
     end
 
@@ -26,19 +26,17 @@ if defined?(RecipesController)
       }
     end
 
-    describe "GET index" do
-      it "assigns all recipes as @recipes" do
-        recipe = Recipe.create! valid_attributes
-        get :index, params: {}
-        expect(assigns(:recipes)).to eq([recipe])
-      end
+    login_user
+
+    it "should have a current_user" do
+      # note the fact that you should remove the "validate_session" parameter if this was a scaffold-generated controller
+      expect(subject.current_user).to_not eq(nil)
     end
 
-    describe "GET show" do
-      it "assigns the requested recipe as @recipe" do
-        recipe = Recipe.create! valid_attributes
-        get :show, params: {:id => recipe.to_param}
-        expect(assigns(:recipe)).to eq(recipe)
+    describe "GET index" do
+      it "should return success" do
+        get :index, params: {}
+        expect(response.status).to eq 200
       end
     end
 
@@ -49,9 +47,25 @@ if defined?(RecipesController)
       end
     end
 
+    describe "GET show" do
+      it "assigns the requested recipe as @recipe" do
+        recipe = Recipe.new(valid_attributes)
+        recipe.user = subject.current_user
+        recipe.category = @category1
+        recipe.save
+        p recipe
+
+
+        get :show, params: {:id => recipe.to_param}
+        expect(assigns(:recipe)).to eq(recipe)
+      end
+    end
+
+
     describe "POST create" do
       describe "with valid parameters"
         it "creates a new Recipe" do
+          p login_user
           expect {
             post :create, params: {:recipe => valid_attributes}
           }.to change(Recipe, :count).by(1)
