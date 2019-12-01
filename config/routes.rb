@@ -5,10 +5,14 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'home' => 'recipes#home', as: :home
-      get 'entrees-aperos' => 'recipes#category', category: 'Entrées et Apéros', as: :entreesetaperos
-      get 'platsprincipaux' => 'recipes#category', category: 'Plats principaux%', as: :platsprincipaux
-      get 'desserts' => 'recipes#category', category: 'Desserts', as: :desserts
+      # get 'entrees-aperos' => 'recipes#category', category: 'Entrées et Apéros', as: :entreesetaperos
+      # get 'platsprincipaux' => 'recipes#category', category: 'Plats principaux%', as: :platsprincipaux
+      # get 'desserts' => 'recipes#category', category: 'Desserts', as: :desserts
     end
+  end
+
+  resources :categories do
+
   end
 
   root 'recipes#home'

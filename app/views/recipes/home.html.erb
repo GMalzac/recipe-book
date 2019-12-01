@@ -8,9 +8,9 @@
 <div class="container">
   <div id="section-one">
     <ul>
-      <li><%= link_to "Entrées et apéros", entreesetaperos_recipes_path %></li>
-      <li><%= link_to "Plats principaux", platsprincipaux_recipes_path %></li>
-      <li><%= link_to "Desserts", desserts_recipes_path %></li>
+      <% @categories.each do |category| %>
+        <li><%= link_to "#{category.name}", category_path(category) %></li>
+      <% end %>
     </ul>
 
   </div>
@@ -25,9 +25,12 @@
   <div id="section-three">
     <h2>Un repas complet au hasard pour la 2 !</h2>
     <ul>
-      <% ["Entrées et apéros", "Plats principaux%", "Desserts"].each do |recipe_category| %>
-        <li><%= link_to "#{@recipes.category(recipe_category).random.title} - by #{@recipes.category(recipe_category).random.author}", recipe_path(@recipes.category(recipe_category).random) %></li>
+      <% @categories.each do |category| %>
+        <li><%= link_to "#{@recipes.category(category.id).random.title} - by #{@recipes.category(category.id).random.author}", recipe_path(@recipes.category(category.id).random) %></li>
       <% end %>
+
+
+
     </ul>
   </div>
 

@@ -42,13 +42,8 @@ class RecipesController < ApplicationController
 
   def home
     @recipes = Recipe.all
+    @categories = Category.all
     authorize @recipes
-  end
-
-  def category
-    @recipes = Recipe.category(params[:category])
-    authorize @recipes
-    render 'index'
   end
 
   private
