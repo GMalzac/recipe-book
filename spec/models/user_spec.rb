@@ -4,11 +4,7 @@ RSpec.describe User, :type => :model do
 
   before(:all) do
     @user1 ||= create(:user)
-    p "#{User.all}"
-    p @user1
-    p "oooo"
   end
-
 
   it "is valid with valid attributes" do
     expect(@user1).to be_valid
