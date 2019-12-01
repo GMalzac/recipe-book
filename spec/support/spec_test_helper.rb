@@ -1,14 +1,18 @@
 module SpecTestHelper
 
   def login_admin
-    admin = User.create!(email: 'admin@recettes-test.com', username: "Admin", password: "123456", password_confirmation: "123456", admin: true)
-    sign_in admin
-    admin
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:admin]
+      sign_in FactoryBot.create(:admin) # Using factory bot as an example
+    end
   end
 
   def login_user
-    user = User.create!(email: 'user@recettes-test.com', username: "User", password: "123456", password_confirmation: "123456", admin: false)
-    sign_in user
-    user
+    before(:each) do
+      @request.env["devise.mapping"] = Devise.mappings[:user]
+      user = FactoryBot.create(:user)
+      sign_in user
+    end
   end
+
 end
