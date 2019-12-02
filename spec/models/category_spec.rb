@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
 
-  before(:all) do
-    @category1 ||= create(:category)
+  before(:example) do
+    @category1 = create(:category)
   end
 
   it "is valid with valid attributes" do
