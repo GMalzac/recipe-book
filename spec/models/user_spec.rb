@@ -19,6 +19,11 @@ RSpec.describe User, :type => :model do
       expect(@user1).to be_valid
     end
 
+    it "can create an admin user" do
+      admin_user = build(:admin_user)
+      expect(admin_user.admin).to be true
+    end
+
     it "has a unique username" do
       user2 = build(:user, email: "tom@gmail.com")
       expect(user2).to_not be_valid
