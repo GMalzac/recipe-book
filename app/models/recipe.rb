@@ -7,6 +7,8 @@ class Recipe < ApplicationRecord
   belongs_to :user
   belongs_to :category
 
+  accepts_nested_attributes_for :category
+
   scope :latest, ->(number) { last("?", number) }
   scope :category, ->(category_id) { where("category_id = ?", category_id) }
   scope :random, -> { order('RANDOM()').first }

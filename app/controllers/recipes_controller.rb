@@ -30,11 +30,13 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    params = recipe_params
+    params['category'] = Category.find(recipe_params[:category].to_i)
+    @recipe = Recipe.new(params)
     @recipe.user = current_user
     authorize @recipe
     if @recipe.save
-      redirect_to @recipe
+      redirect_to recipe_path(@recipe)
     else
       render 'new'
     end
@@ -53,7 +55,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category_id, :user)
+    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category)
   end
 
 end
