@@ -31,7 +31,7 @@ class RecipesController < ApplicationController
 
   def create
     params = recipe_params
-    params['category'] = Category.find(recipe_params[:category].to_i)
+    params['category'] = Category.find(recipe_params[:category_id])
     @recipe = Recipe.new(params)
     @recipe.user = current_user
     authorize @recipe
@@ -55,7 +55,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category)
+    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category_id)
   end
 
 end

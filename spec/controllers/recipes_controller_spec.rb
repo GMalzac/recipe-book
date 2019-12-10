@@ -14,7 +14,7 @@ if defined?(RecipesController)
         ingredients: "A fish, breadcrumbs, eggs, and flour",
         description: "Prepare the breading: Prep the breadcrumbs, eggs, and flour. Bread the fish. Bake in the oven",
         author: "Mr Cook",
-        category: create(:random_category)
+        category_id: create(:random_category).id
       }
     end
 
@@ -24,8 +24,8 @@ if defined?(RecipesController)
         ingredients: "A fish, breadcrumbs, eggs, and flour",
         description: "Prepare the breading: Prep the breadcrumbs, eggs, and flour. Bread the fish. Bake in the oven",
         author: "Mr Cook",
-        category: create(:random_category),
-        user: create(:random_user)
+        category_id: create(:random_category).id,
+        user_id: create(:random_user).id
       }
     end
 
@@ -35,7 +35,8 @@ if defined?(RecipesController)
         ingredients: "A fish, breadcrumbs, eggs, and flour",
         description: "Prepare the breading: Prep the breadcrumbs, eggs, and flour. Bread the fish. Bake in the oven",
         author: "Mr Cook",
-        category: create(:random_category)
+        category_id: create(:random_category).id,
+        user_id: create(:random_user).id
       }
     end
 
