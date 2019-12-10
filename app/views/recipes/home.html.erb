@@ -7,14 +7,24 @@
 
 <div class="container">
   <div id="section-one">
+    <%= form_tag recipes_path, method: :get do %>
+      <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "carottes, boeuf bourguignon, Manou..."
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
+  </div>
+  <div class="section-two">
     <ul>
       <% @categories.each do |category| %>
         <li><%= link_to "#{category.name}", category_path(category) %></li>
       <% end %>
     </ul>
-
   </div>
-  <div id="section-two">
+  <div id="section-three">
     <h2>Les recettes les plus récentes</h2>
     <ul>
       <% @recipes.last(3).each do |recipe| %>
@@ -22,15 +32,12 @@
       <% end %>
     </ul>
   </div>
-  <div id="section-three">
+  <div id="section-four">
     <h2>Un repas complet au hasard pour la 2 !</h2>
     <ul>
       <% @categories.each do |category| %>
         <li><%= link_to "#{@recipes.category(category.id).random.title} - by #{@recipes.category(category.id).random.author}", recipe_path(@recipes.category(category.id).random) %></li>
       <% end %>
-
-
-
     </ul>
   </div>
 
