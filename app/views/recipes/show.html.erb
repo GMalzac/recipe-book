@@ -1,7 +1,9 @@
 <div class="container">
   <h1><%= @recipe.title %> - by <%= @recipe.author %></h1>
-  <h2><%= @recipe.ingredients %></h2>
-  <h2><%= @recipe.description %></h2>
+  <h2>Ingrédients</h2>
+  <h3><%= @recipe.ingredients %></h3>
+  <h2>Recette</h2>
+  <h3><%= @recipe.description %></h3>
   <%= link_to "Edit recipe", edit_recipe_path(@recipe)  %>
   <%= link_to "Show all recipes", recipes_path  %>
 </div>
