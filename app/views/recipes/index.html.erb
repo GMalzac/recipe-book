@@ -2,7 +2,7 @@
   <h1><%= params[:category] %></h1>
   <ul>
     <% @recipes.each do |recipe| %>
-      <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
+      <li><%= link_to "#{recipe.title} de #{recipe.author}", recipe_path(recipe) %></li>
     <% end %>
   </ul>
 </div>

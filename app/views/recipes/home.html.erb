@@ -28,7 +28,7 @@
     <h2>Les recettes les plus récentes</h2>
     <ul>
       <% @recipes.last(3).each do |recipe| %>
-        <li><%= link_to "#{recipe.title} - by #{recipe.author}", recipe_path(recipe) %></li>
+        <li><%= link_to "#{recipe.title} de #{recipe.author}", recipe_path(recipe) %></li>
       <% end %>
     </ul>
   </div>
@@ -36,7 +36,7 @@
     <h2>Un repas complet au hasard pour la 2 !</h2>
     <ul>
       <% @categories.each do |category| %>
-        <li><%= link_to "#{@recipes.category(category.id).random.title} - by #{@recipes.category(category.id).random.author}", recipe_path(@recipes.category(category.id).random) %></li>
+        <li><%= link_to "#{@recipes.category(category.id).random.title} de #{@recipes.category(category.id).random.author}", recipe_path(@recipes.category(category.id).random) %></li>
       <% end %>
     </ul>
   </div>
