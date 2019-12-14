@@ -52,6 +52,12 @@ class RecipesController < ApplicationController
     authorize @recipes
   end
 
+  def user_recipes
+    @recipes = Recipe.where(user_id: current_user.id)
+    authorize @recipes
+    render 'index'
+  end
+
   private
 
   def get_recipe
@@ -59,7 +65,7 @@ class RecipesController < ApplicationController
   end
 
   def recipe_params
-    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category_id)
+    params.require(:recipe).permit(:title, :ingredients, :description, :author, :category_id, :user_id)
   end
 
 end

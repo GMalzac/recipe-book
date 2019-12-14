@@ -29,6 +29,10 @@ class RecipePolicy < ApplicationPolicy
     (record.user_id == user.id || user.admin)
   end
 
+  def user_recipes?
+    return true
+  end
+
 
   def home?
     return true

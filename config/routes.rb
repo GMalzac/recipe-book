@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :recipes do
     collection do
       get 'home' => 'recipes#home', as: :home
+      get 'user_recipes' => 'recipes#user_recipes', as: :user
       # get 'entrees-aperos' => 'recipes#category', category: 'Entrées et Apéros', as: :entreesetaperos
       # get 'platsprincipaux' => 'recipes#category', category: 'Plats principaux%', as: :platsprincipaux
       # get 'desserts' => 'recipes#category', category: 'Desserts', as: :desserts

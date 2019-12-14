@@ -92,7 +92,7 @@ if defined?(RecipesController)
           end
           it "re-renders the 'new' template" do
             post :create, params: {:recipe => invalid_attributes}
-            expect(response). to render_template("new")
+            expect(response).to render_template("new")
           end
         end
       end
@@ -104,6 +104,22 @@ if defined?(RecipesController)
           expect(assigns(:recipe)).to eq(recipe)
         end
       end
+
+      describe "GET edit" do
+          login_user
+        it "should allow a publisher to edit his recipe" do
+          recipe = Recipe.create!(valid_attributes)
+          recipe.user_id = current_user.id
+          get :edit, params: {:id => recipe.to_param}
+          expect(response).to render_template("edit")
+
+        end
+
+        it "should not allow a user to edit somebody else's recipe" do
+
+        end
+      end
+
     end
 
     describe "a non-logged in user" do
