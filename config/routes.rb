@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to:'recipes#home'
   devise_for :users
   resources :recipes do
     collection do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
 
   end
 
-  root 'recipes#home'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
