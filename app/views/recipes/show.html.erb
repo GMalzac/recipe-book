@@ -1,8 +1,10 @@
-<h1><%= @recipe.title %> - by <%= @recipe.author %></h1>
+<h1><%= @recipe.title %> par <%= @recipe.author %></h1>
 <h2>Ingrédients</h2>
 <h3><%= @recipe.ingredients %></h3>
 <h2>Recette</h2>
 <h3><%= @recipe.description %></h3>
-<%= link_to "Edit recipe", edit_recipe_path(@recipe)  %>
-<%= link_to "Show all recipes", recipes_path  %>
+
+<% if (@recipe.user == current_user) || (current_user.admin) %>
+  <%= link_to "Edit recipe", edit_recipe_path(@recipe)  %>
+<% end %>
 
