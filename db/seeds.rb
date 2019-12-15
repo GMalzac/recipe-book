@@ -116,12 +116,12 @@ RECIPES = [
     author: "Manou",
     ingredients: "
       <ul>
-        <li>Foie de porc séché<li>
-        <li>Oignons vieux<li>
-        <li>Oignons frais<li>
-        <li>Artichauts frais, les petits<li>
-        <li>Radis<li>
-        <li>Œufs durs<li>
+        <li>Foie de porc séché</li>
+        <li>Oignons vieux</li>
+        <li>Oignons frais</li>
+        <li>Artichauts frais, les petits</li>
+        <li>Radis</li>
+        <li>Œufs durs</li>
       </ul>
       ",
     description: "
@@ -166,8 +166,12 @@ RECIPES = [
         <li> ½ verre de lait</li>
       </ul>
     ",
-    description: "Une fois fondu, ajouter 15g de poudre d’amande
-Mélanger avec le gaspacho ",
+    description: "
+      <ul>
+        <li>Une fois fondu, ajouter 15g de poudre d’amande</li>
+        <li>Mélanger avec le gaspacho</li>
+      </ul>
+    ",
     category: ENTREE
   },
   { title: "Aubergines en béchamel",
@@ -314,11 +318,11 @@ Mélanger avec le gaspacho ",
     author: "Bonne Maman",
     ingredients: "
       <ul>
-        <li>2 verres d’eau<li>
-        <li>Une pincée de sel<li>
-        <li>50gr de beurre<li>
-        <li>2 verres de farine<li>
-        <li>50gr de gruyères râpés<li>
+        <li>2 verres d’eau</li>
+        <li>Une pincée de sel</li>
+        <li>50gr de beurre</li>
+        <li>2 verres de farine</li>
+        <li>50gr de gruyères râpés</li>
       </ul>
     ",
     description: "
@@ -398,15 +402,16 @@ Mélanger avec le gaspacho ",
     ",
     description: "
       <ul>
-        <li>Mettre 2 à 3 jours à mariner au frigo en tournant tous les jours la viande.</li>
+        <li>Mettre 2 à 3 jours à mariner au frigo en tournant tous les jours la viande</li>
         <li>Préparer un bouillon de viande et légumes sur le feu. Garder et dégraisser le bouillon. Un bouillon cube Bio fera aussi l’affaire !</li>
-        <li>Cuisiner la daube de préférence la veille du diner.</li>
-        <li>Egoutter la viande, filtrer la marinade.</li>
-        <li>Faire revenir la viande dans un peu d’huile ou de graisse de canard, faire saisir puis la mettre dans un saladier. La fariner et la remettre dans la cocotte avec un peu d’huile, d’oignons, échalotes et verser ½ verre de cognac chaud et l’enflammer hors du feu (et pas sous la hotte !)</li>
-        <li>Quand les flammes sont éteintes, remettre sur le feu. Rajouter la marinade jusqu’à ce que la viande soit presque recouverte.</li>
-        <li>Rajoute encore une louche de bouillon déjà préparé.</li>
-        <li>Laisser cuire à feu moyen. Saler.</li>
-        <li>Cuire minimum 2h avec un couvercle.</li>
+        <li>Cuisiner la daube de préférence la veille du diner</li>
+        <li>Egoutter la viande, filtrer la marinade</li>
+        <li>Faire revenir la viande dans un peu d’huile ou de graisse de canard, faire saisir puis la mettre dans un saladier</li>
+        <li>La fariner et la remettre dans la cocotte avec un peu d’huile, d’oignons, échalotes et verser ½ verre de cognac chaud et l’enflammer hors du feu (et pas sous la hotte !)</li>
+        <li>Quand les flammes sont éteintes, remettre sur le feu. Rajouter la marinade jusqu’à ce que la viande soit presque recouverte</li>
+        <li>Rajoute encore une louche de bouillon déjà préparé</li>
+        <li>Laisser cuire à feu moyen. Saler</li>
+        <li>Cuire minimum 2h avec un couvercle</li>
         <li>Rajouter du potage si nécessaire (surtout pas de la marinade qui doit toujours cuire !)</li>
       </ul>
     ",
@@ -450,15 +455,15 @@ Mélanger avec le gaspacho ",
     author: "Mamie",
     ingredients: "
     <ul>
-      <li>1 Poulet<li>
-      <li>Huile d'olive<li>
-      <li>sel<li>
-      <li>poivre<li>
-      <li>1 oignon<li>
-      <li>2 gousses d'ail<li>
-      <li>1 tomate<li>
-      <li>1 piment rouge<li>
-      <li>riz<li>
+      <li>1 Poulet</li>
+      <li>Huile d'olive</li>
+      <li>sel</li>
+      <li>poivre</li>
+      <li>1 oignon</li>
+      <li>2 gousses d'ail</li>
+      <li>1 tomate</li>
+      <li>1 piment rouge</li>
+      <li>riz</li>
     </ul>
     ",
     description: "
@@ -803,13 +808,13 @@ Mélanger avec le gaspacho ",
     description: "
       <ul>
         <li>Bien parer la baudroie et la couper en gros morceaux</li>
-        <li>Faire frire la baudroie dans une casserole. Flamber avec du cogna</li>
+        <li>Faire frire la baudroie dans une casserole. Flamber avec du cognac</li>
         <li>Hacher le blanc de 4 poireaux, un peu de céleri, le blanc d’une salade frisée</li>
         <li>Faire frire dans l’huile du poisson</li>
         <li>Ajouter eau + vin blanc et cuire ½ heure</li>
         <li>Mayonnaise 4 jaunes (+huile) au dernier moment</li>
-        <li>NE PAS FAIRE BOUILLI</li>
-        <li>Servir avec des pommes de terr</li>
+        <li>NE PAS FAIRE BOUILLIR</li>
+        <li>Servir avec des pommes de terre</li>
       </ul> ",
     category: PLAT_POISSON
   },
@@ -849,7 +854,8 @@ Mélanger avec le gaspacho ",
       </ul>
     ",
     description: "
-      <ul>La faire pocher dans 1 peu d’eau avec 1 oignon, sel et poivre. Cuire 5min.
+      <ul>
+        <li>La faire pocher dans 1 peu d’eau avec 1 oignon, sel et poivre. Cuire 5min</li>
         <li>Béchamel : beurre + farine + 1.5 verre de vin blanc, faire cuire un petit peu et mélanger le fumet de poisson ; ajouter 250 g de crème fraiche.</li>
         <li>Ajouter éventuellement coquillages + champignons</li>
         <li>Peler 3 tomates ; Garder la pulpe. Mélanger à la sauce + estragon.</li>
@@ -992,12 +998,12 @@ Mélanger avec le gaspacho ",
     ",
     description: "
       <ul>
-        <li>Mettre dans une casserole 80gr de beurre, 30 gr de sucre, une pincée de sel et ¼ de litre d’eau.</li>
-        <li>Placer la casserole sur le feu et y verser 150gr de farine qui aura été tamisée, remuer avec une spatule de manière à obtenir un mélange consistant et homogène.</li>
-        <li>Remettre la casserole sur le feu sans cesser de remuer afin de la dessécher un peu en la cuisant.</li>
-        <li>La laisser jusqu’à ce que la pâte n’adhère plus à la spatule.</li>
-        <li>A ce moment, sortir la casserole du feu et sans attendre, ajouter successivement 4 œufs frais entiers en les incorporant l’un après l’autre, ajouter le dernier blanc monté en neige.</li>
-        <li>Laisser reposer la pâte. Mettre gros comme des noix de pâte dans la friture modérément chaude. Egoutter et servir chaud. Saupoudrer de sucre.</li>
+        <li>Mettre dans une casserole 80gr de beurre, 30 gr de sucre, une pincée de sel et ¼ de litre d’eau</li>
+        <li>Placer la casserole sur le feu et y verser 150gr de farine qui aura été tamisée, remuer avec une spatule de manière à obtenir un mélange consistant et homogène</li>
+        <li>Remettre la casserole sur le feu sans cesser de remuer afin de la dessécher un peu en la cuisant</li>
+        <li>La laisser jusqu’à ce que la pâte n’adhère plus à la spatule</li>
+        <li>A ce moment, sortir la casserole du feu et sans attendre, ajouter successivement 4 œufs frais entiers en les incorporant l’un après l’autre, ajouter le dernier blanc monté en neige</li>
+        <li>Laisser reposer la pâte. Mettre gros comme des noix de pâte dans la friture modérément chaude. Egoutter et servir chaud. Saupoudrer de sucre</li>
       </ul>
     ",
     category: DESSERT
@@ -1016,10 +1022,10 @@ Mélanger avec le gaspacho ",
     ",
     description: "
       <ul>
-        <li>Mettre fruits dans un grand plat à gratin.</li>
-        <li>Chauffer fort le grill du four.</li>
-        <li>Mélanger le jaunes d’œufs, la crème, le sucre vanillé + 2 cuillères d’eau et faire cuire doucement l’ensemble dans une casserole à fond épais, il faut que ce soit épais comme une crème pâtissière.</li>
-        <li>Napper les fruits bien égouttés avec cette crème et mettre au grill le temps que ca dore, 3/5 minutes.</li>
+        <li>Mettre fruits dans un grand plat à gratin</li>
+        <li>Chauffer fort le grill du four</li>
+        <li>Mélanger le jaunes d’œufs, la crème, le sucre vanillé + 2 cuillères d’eau et faire cuire doucement l’ensemble dans une casserole à fond épais, il faut que ce soit épais comme une crème pâtissière</li>
+        <li>Napper les fruits bien égouttés avec cette crème et mettre au grill le temps que ca dore, 3/5 minutes</li>
         <li>Servir tout de suite</li>
       </ul>
     ",
@@ -1072,7 +1078,7 @@ Mélanger avec le gaspacho ",
     ",
     category: DESSERT
   },
-  { title: "Pommes",
+  { title: "Compote de pommes",
     author: "Fifi",
     ingredients: "
       <ul>
@@ -1084,7 +1090,7 @@ Mélanger avec le gaspacho ",
     ",
     description: "
       <ul>
-        <li>Faire cuire ensemble à la casserole jusqu’à obtention d’une compote. Laisser quelques morceaux<li>
+        <li>Faire cuire ensemble à la casserole jusqu’à obtention d’une compote. Laisser quelques morceaux</li>
       </ul>
     ",
     category: DESSERT
@@ -1093,10 +1099,10 @@ Mélanger avec le gaspacho ",
     author: "Fifi",
     ingredients: "
       <ul>
-        <li>Crème à la vanille<li>
-        <li>12 blancs d'oeuf<li>
-        <li>caramel<li>
-        <li>20 morceaux de sucre<li>
+        <li>Crème à la vanille</li>
+        <li>12 blancs d'oeuf</li>
+        <li>caramel</li>
+        <li>20 morceaux de sucre</li>
       </ul>
     ",
     description: "
