@@ -1,8 +1,7 @@
-<div class="container">
-  <h1><%= params[:category] %></h1>
-  <ul>
-    <% @recipes.each do |recipe| %>
-      <li><%= link_to "#{recipe.title} - publié par #{recipe.user.username}", recipe_path(recipe) %></li>
-    <% end %>
-  </ul>
-</div>
+<h1><%= params[:category] %></h1>
+<ul>
+  <% @recipes.each do |recipe| %>
+    <li><%= link_to "#{recipe.title} - publié par #{recipe.user.username}", recipe_path(recipe) %></li>
+  <% end %>
+</ul>
+

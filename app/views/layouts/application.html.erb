@@ -14,8 +14,14 @@
   <body>
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
+    <% if request.path == '/recipes/home' %>
+      <%= yield %>
+    <% else %>
+      <div class="container">
+        <%= yield %>
+      </div>
+    <% end %>
 
-    <%= yield %>
     <%= javascript_pack_tag "application" %>
   </body>
 </html>
