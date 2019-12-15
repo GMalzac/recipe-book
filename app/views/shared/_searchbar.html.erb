@@ -1,0 +1,8 @@
+<%= form_tag recipes_path, method: :get, class: "form-inline" do %>
+  <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-field",
+      placeholder: "carottes, boeuf bourguignon, Manou..."
+  %>
+  <%= submit_tag "Rechercher", class: "btn btn-danger" %>
+<% end %>
