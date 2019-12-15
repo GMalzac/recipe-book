@@ -1,7 +1,8 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 50px 0;
+  margin-bottom: 50px;
 }
 
 .banner h1 {
@@ -24,6 +25,12 @@
 }
 
 .banner-search {
+  justify-content: center !important;
+  display: flex;
+  margin-bottom: 50px;
+}
+
+.banner-add {
   justify-content: center !important;
   display: flex;
 }

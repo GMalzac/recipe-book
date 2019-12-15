@@ -7,41 +7,58 @@
     <div class="banner-search">
       <%= render 'shared/searchbar' %>
     </div>
+    <div class="banner-add">
+      <%= link_to "Ajouter une recette", new_recipe_path, class: 'btn btn-primary' %>
+    </div>
   </div>
 </div>
 
 <div class="container">
-  <div id="section-one">
-  </div>
-  <div class="section-two">
-    <ul>
+  <div class="section-one">
+    <ul class="categories-list">
       <% @categories.each do |category| %>
         <li><%= link_to "#{category.name}", category_path(category) %></li>
       <% end %>
     </ul>
   </div>
-  <div id="section-three">
+  <div id="section-two">
     <h2>Les recettes les plus récentes</h2>
-    <ul>
+    <div class="card-deck">
       <% @recipes.last(3).each do |recipe| %>
-        <li><%= link_to "#{recipe.title} - publié par #{recipe.author}", recipe_path(recipe) %></li>
+        <div class="card" style="width: 18rem;">
+          <%= link_to(recipe, {class: "card-link"}) do %>
+            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= recipe.title %>">
+            <div class="card-body">
+              <h3 class="card-title"><%= recipe.title %></h3>
+              <h6 class="card-subtitle mb-2 text-muted"><%= recipe.category.name %></h6>
+              <p class="card-text"><small class="text-muted"><%= "par #{recipe.author}" %></small></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
-  <div id="section-four">
+  <div id="section-three">
     <h2>Un repas complet au hasard pour la 2 !</h2>
-    <ul>
+    <div class="card-deck">
       <% @categories.each do |category| %>
-        <li><%= link_to "#{@recipes.category(category.id).random.title} - publié par #{@recipes.category(category.id).random.author}", recipe_path(@recipes.category(category.id).random) %></li>
+        <div class="card" style="width: 18rem;">
+          <%= link_to(recipe_path(@recipes.category(category.id).random), {class: "card-link"}) do %>
+            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= @recipes.category(category.id).random.title %>">
+            <div class="card-body">
+              <h3 class="card-title"><%= @recipes.category(category.id).random.title %></h3>
+              <h6 class="card-subtitle mb-2 text-muted"><%= category.name %></h6>
+              <p class="card-text"><small class="text-muted"><%= "par #{@recipes.category(category.id).random.author}" %></small></p>
+            </div>
+          <% end %>
+        </div>
       <% end %>
-    </ul>
+    </div>
   </div>
 
-  <%= link_to 'New recipe', new_recipe_path  %>
-
-  <div data-controller="hello">
+<!--   <div data-controller="hello">
     <h1 data-target="hello.output"></h1>
-  </div>
+  </div> -->
 </div>
 
 
