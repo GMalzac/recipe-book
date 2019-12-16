@@ -13,11 +13,23 @@ ul.categories-list li {
   border-radius: 10px;
   color: #f67058;
   font-weight: 600;
+  text-decoration: none;
+}
+
+.category a {
+  -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
+  transition: background-color 0.5s, color 0.5s;
+}
+
+.category a:hover {
+  background-color: #f67058;
+  color: white;
 }
 
 #section-one {
   margin-bottom: 50px;
   h2 {
+    color: gray;
     margin-bottom: 30px;
   }
 }
@@ -25,6 +37,7 @@ ul.categories-list li {
 #section-two {
   margin-bottom: 50px;
   h2 {
+    color: gray;
     margin-bottom: 30px;
   }
 }
@@ -32,12 +45,8 @@ ul.categories-list li {
 #section-three {
   margin-bottom: 50px;
   h2 {
+    color: gray;
     margin-bottom: 30px;
   }
-}
-
-h3.card-title {
-  text-decoration: none;
-  color: black;
 }
 
