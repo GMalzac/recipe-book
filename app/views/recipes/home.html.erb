@@ -24,7 +24,7 @@
   <div id="section-two">
     <h2>Les recettes les plus récentes</h2>
     <div class="card-deck">
-      <% @recipes.last(3).each do |recipe| %>
+      <% @recipes.last(4).reverse.each do |recipe| %>
         <div class="card" style="width: 18rem;">
           <%= link_to(recipe, {class: "card-link"}) do %>
             <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= recipe.title %>">

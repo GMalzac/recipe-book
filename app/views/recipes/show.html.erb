@@ -4,7 +4,7 @@
 <h2>Recette</h2>
 <h3><%= @recipe.description %></h3>
 
-<% if (@recipe.user == current_user) || (current_user.admin) %>
+<% if ((@recipe.user == current_user) || (current_user && current_user.admin)) %>
   <%= link_to "Edit recipe", edit_recipe_path(@recipe)  %>
 <% end %>
 

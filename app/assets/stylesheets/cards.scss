@@ -4,10 +4,15 @@
 
 .card:hover {
   transform: scale(1.02);
-  box-shadow: 0px 2px #888888;
+  box-shadow: 0px 1px lightgray;
 }
 
 h3.card-title {
   text-decoration: none;
+  font-size: 16px;
   color: #f67058;
+}
+
+h6.card-subtitle {
+  font-size: 12px;
 }
