@@ -7,8 +7,14 @@ h1 {
 }
 
 ul.categories-list li {
-  display: inline;
-  justify-content: center;
+  list-style-type: none;
+  text-align: center;
+  margin-bottom: 20px;
+  @media (min-width: 576px) {
+    text-align: initial;
+    justify-content: center;
+    display: inline;
+  };
 }
 
 .categories-list li a {
