@@ -16,6 +16,8 @@ class Recipe < ApplicationRecord
   scope :category, ->(category_id) { where("category_id = ?", category_id) }
   scope :random, -> { order('RANDOM()').first }
 
+  mount_uploader :photo, PhotoUploader
+
   include PgSearch::Model
   pg_search_scope :search_by_title_and_ingredients_and_author,
   against:[ :title, :ingredients, :author ],
