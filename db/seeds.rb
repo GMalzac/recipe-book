@@ -5,16 +5,14 @@ User.destroy_all
 
 puts "Creating categories"
 
-CATEGORIES = ["Entrées et apéros", "Plats principaux végétariens", "Plats principaux de viande", "Plats principaux de poisson", "Desserts"]
+CATEGORIES = ["Entrées et apéros", "Plats principaux", "Desserts"]
 
 CATEGORIES.each do |category|
   Category.create!(name: category)
 end
 
 ENTREE = Category.find_by(name: "Entrées et apéros" )
-PLAT_VEG = Category.find_by(name: "Plats principaux végétariens" )
-PLAT_VIANDE = Category.find_by(name: "Plats principaux de viande" )
-PLAT_POISSON = Category.find_by(name: "Plats principaux de poisson" )
+PLAT_PRINCIPAL = Category.find_by(name: "Plats principaux" )
 DESSERT = Category.find_by(name: "Desserts" )
 
 p "========================================================================="
@@ -291,7 +289,7 @@ RECIPES = [
         <li>Au four pour que ça gratine.</li>
       </ul>
       ",
-    category: PLAT_VEG
+    category: PLAT_PRINCIPAL
   },
   { title: "Purée de carottes",
     author: "James de Coquet",
@@ -312,7 +310,7 @@ RECIPES = [
         <li>Mettre dans de grands moules individuels, chapeauter de crème fouettée et mettre à four  chaud pour que ça dore et glace.</li>
       </ul>
     ",
-    category: PLAT_VEG
+    category: PLAT_PRINCIPAL
   },
   { title: "Beignets au fromage",
     author: "Bonne Maman",
@@ -338,7 +336,7 @@ RECIPES = [
         <li>Servir chaud !</li>
       </ul>
     ",
-    category: PLAT_VEG
+    category: PLAT_PRINCIPAL
   },
   { title: "Pâte levée  pour tarte aux Maroilles",
     author: " Moucky",
@@ -359,7 +357,7 @@ RECIPES = [
         <li>Rajouter un Maroilles coupé en morceaux, plus de la crème fraîche.</li>
         <li>Au four pour que la pâte soit bien levée et dorée</li>
       </ul>",
-    category: PLAT_VEG
+    category: PLAT_PRINCIPAL
   },
   { title: "Daube de bœuf",
     author: "?",
@@ -384,7 +382,7 @@ RECIPES = [
       <li>Saler, poivrer, ajouter gousse d’ail entière.</li>
       <li>Cuisson à feu doux couvert. Fermer hermétiquement et laisser cuire 3 à 4h</li>
     </ul>",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Daube de sanglier",
     author: "Manou et de Moucky",
@@ -415,7 +413,7 @@ RECIPES = [
         <li>Rajouter du potage si nécessaire (surtout pas de la marinade qui doit toujours cuire !)</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Poularde à la crème",
     author: "Manou",
@@ -449,7 +447,7 @@ RECIPES = [
         <li>Faire un potage avec des perles du japon ou du vermicelle.</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Poulet au riz",
     author: "Mamie",
@@ -477,7 +475,7 @@ RECIPES = [
         <li>La consistance du riz est comme celui de la paella.</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Blanquette d’agneau",
     author: "?",
@@ -505,7 +503,7 @@ RECIPES = [
         <li>Ajouter vinaigre et citron</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Lapin Lardorel ",
     author: "Manou",
@@ -528,7 +526,7 @@ RECIPES = [
         <li>Déglacer le lapin avec cette persillade</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Lapin en sauce Saupiquet ",
     author: "Manou",
@@ -567,7 +565,7 @@ RECIPES = [
         <li>Ajouter sel, poivre, persil et genièvre.</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Canard aux olives",
     author: "Manou",
@@ -592,7 +590,7 @@ RECIPES = [
         <li>lait et huile d’olive pour la purée</li>
         <li>rajouter 250 gr d’olives noires CONFITES à la grecque mixées.</li>
       </ul>",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Civet de lièvre",
     author: "?",
@@ -627,7 +625,7 @@ RECIPES = [
         <li>Si la sauce est trop claire, la lier avec peu de farine en supplément.</li>
         <li>Certains y ajoutent quelques cuillérées de crème fraiche quand la sauce est un peu forte, facultatif et au goût de chacun.</li>
       </ul>",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Beignets de cervelle",
     author: "Bonne Maman",
@@ -649,7 +647,7 @@ RECIPES = [
         <li>Au moment de faire cuire les beignets, monter les blancs d’œufs en neige.</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Croquettes de viande ",
     author: "Maria",
@@ -667,7 +665,7 @@ RECIPES = [
         <li>Friture bouillante, et penser à égoutter</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Cassoulet",
     author: "Bonne Maman et de Moucky",
@@ -698,7 +696,7 @@ RECIPES = [
         <li>Les couennes doivent être entièrement débarrassées de la graisse, blanchies et coupées en morceau</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Ni Gou Yeng",
     author: "Flo",
@@ -726,7 +724,7 @@ RECIPES = [
         <li>Servir avec riz</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Chorba algérien",
     author: "Flo",
@@ -751,7 +749,7 @@ RECIPES = [
         <li>Finissez par la coriandre</li>
       </ul>
     ",
-    category: PLAT_VIANDE
+    category: PLAT_PRINCIPAL
   },
   { title: "Morue salée sèche ",
     author: "Xinha",
@@ -773,7 +771,7 @@ RECIPES = [
         <li>Au four 1h30</li>
       </ul>
       ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Sauce hollandaise à servir avec un turbot poché ou un loup en croute de sel",
     author: "Bonne Maman",
@@ -792,7 +790,7 @@ RECIPES = [
         <li>Maintenir au chaud ainsi</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Baudroie en Bourride",
     author: "Manou",
@@ -816,7 +814,7 @@ RECIPES = [
         <li>NE PAS FAIRE BOUILLIR</li>
         <li>Servir avec des pommes de terre</li>
       </ul> ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Pain de Lotte",
     author: "Manou",
@@ -836,7 +834,7 @@ RECIPES = [
         <li>Rajouter la lotte et faire cuire au bain marie dans un moule à cake.</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Lotte",
     author: "Manou",
@@ -862,7 +860,7 @@ RECIPES = [
         <li>Servir avec pâtes fraiches</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Soles normandes",
     author: "Manou et Bonne Maman",
@@ -899,7 +897,7 @@ RECIPES = [
         <li>Napper le pain démoulé.</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Terrine aux deux saumons ",
     author: "Marie Laure",
@@ -917,7 +915,7 @@ RECIPES = [
         <li>Servir avec, crème fraiche et ciboulette, ou mayo</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Soupe de poissons",
     author: "?",
@@ -945,7 +943,7 @@ RECIPES = [
         <li>Il faut que la soupe ait la consistance d’une béchamel légère.</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Bouillabaisse",
     author: "?",
@@ -981,7 +979,7 @@ RECIPES = [
         <li>Crabes, langoustine, langouste : 10 minutes de cuisson dans l’eau salée avant</li>
       </ul>
     ",
-    category: PLAT_POISSON
+    category: PLAT_PRINCIPAL
   },
   { title: "Beignets soufflés",
     author: "?",
