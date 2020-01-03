@@ -4,35 +4,39 @@ h1 {
 
 .categories-list {
   margin-bottom: 50px;
-}
-
-ul.categories-list li {
-  list-style-type: none;
   text-align: center;
-  margin-bottom: 20px;
-  @media (min-width: 576px) {
-    text-align: initial;
-    justify-content: center;
-    display: inline;
-  };
 }
 
-.categories-list li a {
+.category {
   border: 2px solid #f67058;
-  padding: 10px 15px;
   border-radius: 10px;
   color: #f67058;
-  font-weight: 600;
-  text-decoration: none;
-}
-
-.category a {
+  width: 100%;
+  display: flex;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  justify-content: center;
+  text-align: center;
   -webkit-transition: width 2s; /* For Safari 3.1 to 6.0 */
   transition: background-color 0.5s, color 0.5s;
 }
 
-.category a:hover {
+.category:hover {
   background-color: #f67058;
+  color: white !important;
+}
+
+.category {
+}
+
+a.category {
+  text-decoration: none;
+  color: #f67058;
+  font-weight: 600;
+}
+
+a.category:hover {
+  text-decoration: none;
   color: white;
 }
 
