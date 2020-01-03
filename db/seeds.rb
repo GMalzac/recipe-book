@@ -1,3 +1,5 @@
+require "open-uri"
+
 puts "Cleaning database"
 Recipe.destroy_all
 Category.destroy_all
@@ -1305,5 +1307,66 @@ RECIPES.each do |recipe|
     r.user = initial_publisher
     r.save!
   end
+end
+
+RECIPES_URL ={
+  "Foie Gras" => "https://files.meilleurduchef.com/mdc/photo/recipe/slow-cooked-foie-gras/slow-cooked-foie-gras-640.jpg",
+  "Pâte à choux pour gougères" => "",
+  "Pain de poisson " => "",
+  "Pain de Gêne délicieux" => "",
+  "Salade de Pâques à la Mazamétaine" => "",
+  "Pain de crabe (pour 8 personnes)" => "",
+  "Verrines au parmesan" => "",
+  "Aubergines en béchamel" => "",
+  "Pain de lotte" => "",
+  "Vol au vent" => "",
+  "Galantine de volaille en terrine" => "",
+  "Gnocchis à la semoule" => "",
+  "Purée de carottes" => "",
+  "Beignets au fromage" => "",
+  "Pâte levée  pour tarte aux Maroilles" => "",
+  "Daube de bœuf" => "",
+  "Daube de sanglier" => "",
+  "Poularde à la crème" => "",
+  "Poulet au riz" => "",
+  "Blanquette d’agneau" => "",
+  "Lapin Lardorel " => "",
+  "Lapin en sauce Saupiquet " => "",
+  "Canard aux olives" => "",
+  "Civet de lièvre" => "",
+  "Beignets de cervelle" => "",
+  "Croquettes de viande " => "",
+  "Cassoulet" => "",
+  "Ni Gou Yeng" => "",
+  "Chorba algérien" => "",
+  "Morue salée sèche " => "",
+  "Sauce hollandaise à servir avec un turbot poché ou un loup en croute de sel" => "",
+  "Baudroie en Bourride" => "",
+  "Pain de Lotte" => "",
+  "Lotte" => "",
+  "Soles normandes" => "",
+  "Terrine aux deux saumons " => "",
+  "Soupe de poissons" => "",
+  "Bouillabaisse" => "",
+  "Beignets soufflés" => "",
+  "Gratin de fruits rouges" => "",
+  "Gâteau au chocolat" => "",
+  "Vacherin à la vanille " => "",
+  "Compote de pommes" => "",
+  "Malakoff" => "",
+  "Flan à la noix de Coco" => "",
+  "Petits fours à la noix de coco" => "",
+  "Petits fours aux amandes" => "",
+  "Tarte flamande" => "",
+  "Tarte au citron" => "",
+  "Fudge" => "",
+  "Baba au rhum" => "",
+  "Les Mazamétains" => ""
+}
+
+
+Recipe.all.each do |recipe|
+  file = URI.open(RECIPES_URL[recipe.title])
+  recipe.photo.attach(io: file, filename: "#{recipe.title}", content_type: 'image/jpg')
 end
 
