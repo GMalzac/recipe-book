@@ -106,17 +106,20 @@ if defined?(RecipesController)
       end
 
       describe "GET edit" do
-          login_user
         it "should allow a publisher to edit his recipe" do
-          recipe = Recipe.create!(valid_attributes)
-          recipe.user_id = current_user.id
+          recipe = Recipe.new(valid_attributes)
+          recipe.user_id = subject.current_user.id
+          recipe.save
           get :edit, params: {:id => recipe.to_param}
           expect(response).to render_template("edit")
 
         end
 
         it "should not allow a user to edit somebody else's recipe" do
-
+          recipe = Recipe.create!(valid_attributes_with_user)
+          expect do
+            get :edit, params: {:id => recipe.to_param}
+          end.to raise_error Pundit::NotAuthorizedError
         end
       end
 
