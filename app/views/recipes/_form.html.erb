@@ -23,6 +23,11 @@
   </p>
 
   <p>
+    <%= form.label :photo %><br>
+    <%= form.file_field :photo, as: :file %>
+  </p>
+
+  <p>
     <%= form.label :author %><br>
     <%= form.text_field :author %>
   </p>
@@ -36,6 +41,7 @@
     <%= form.label :description %><br>
     <%= form.rich_text_area :description %>
   </p>
+
 
   <p>
     <%= form.submit %>

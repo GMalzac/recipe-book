@@ -5,7 +5,11 @@
     <h3><%= @recipe.ingredients %></h3>
   </div>
   <div class="col-xs-12 col-md-6">
-    <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= @recipe.title %>">
+    <% if @recipe.photo.attached? %>
+      <%= cl_image_tag @recipe.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+      <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= @recipe.title %>">
+    <% end %>
   </div>
 </div>
 <div class="row recipe-content">
