@@ -19,3 +19,12 @@ h6.card-subtitle {
   font-family: 'Montserrat', sans-serif;
   color: #f67058 !important;
 }
+
+
+.recipe-photo {
+  background-size: cover;
+  background-position: center;
+  border-radius: 4px 4px 0px 0px;
+  display: flex;
+  height: 200px;
+}

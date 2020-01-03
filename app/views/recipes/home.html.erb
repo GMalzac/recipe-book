@@ -23,31 +23,28 @@
   </div>
   <div id="section-two">
     <h2>Les recettes les plus récentes</h2>
-
-      <div class="row">
-        <% @recipes.last(4).reverse.each do |recipe| %>
-          <div class="col-sm-12 col-md-6 col-lg-3">
-            <div class="card">
-              <%= link_to(recipe, {class: "card-link"}) do %>
-                <% if recipe.photo.attached? %>
-                  <div class="article-photo" style="background-image: url('<%= cl_image_path recipe.photo.key %>');=""">
-                  </div>
-                <% else %>
-                  <div class="article-photo" style="background-image: url('https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png');=""">
-                  </div>
-                <% end %>
-                <div class="card-body">
-                  <h3 class="card-title"><%= recipe.title %></h3>
-                  <h6 class="card-subtitle mb-2 text-muted"><%= recipe.category.name %></h6>
-                  <p class="card-text"><small class="text-muted"><%= "par #{recipe.author}" %></small></p>
+    <div class="row">
+      <% @recipes.last(4).reverse.each do |recipe| %>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="card">
+            <%= link_to(recipe, {class: "card-link"}) do %>
+              <% if recipe.photo.attached? %>
+                <div class="recipe-photo" style="background-image: url('<%= cl_image_path recipe.photo.key %>');=""">
+                </div>
+              <% else %>
+                <div class="recipe-photo" style="background-image: url('https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png');=""">
                 </div>
               <% end %>
-            </div>
+              <div class="card-body">
+                <h3 class="card-title"><%= recipe.title %></h3>
+                <h6 class="card-subtitle mb-2 text-muted"><%= recipe.category.name %></h6>
+                <p class="card-text"><small class="text-muted"><%= "par #{recipe.author}" %></small></p>
+              </div>
+            <% end %>
           </div>
-        <% end %>
-      </div>
-
-
+        </div>
+      <% end %>
+    </div>
   </div>
   <div id="section-three">
     <h2>Un repas complet au hasard pour la 2 !</h2>
@@ -55,12 +52,18 @@
       <% @categories.each do |category| %>
         <div class="card" style="width: 18rem;">
           <%= link_to(recipe_path(@recipes.category(category.id).random), {class: "card-link"}) do %>
-            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= @recipes.category(category.id).random.title %>">
-            <div class="card-body">
-              <h3 class="card-title"><%= @recipes.category(category.id).random.title %></h3>
-              <h6 class="card-subtitle mb-2 text-muted"><%= category.name %></h6>
-              <p class="card-text"><small class="text-muted"><%= "par #{@recipes.category(category.id).random.author}" %></small></p>
+          <% if @recipes.category(category.id).random.photo.attached? %>
+            <div class="recipe-photo" style="background-image: url('<%= cl_image_path @recipes.category(category.id).random.photo.key %>');=""">
             </div>
+          <% else %>
+            <div class="recipe-photo" style="background-image: url('https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png');=""">
+            </div>
+          <% end %>
+          <div class="card-body">
+            <h3 class="card-title"><%= @recipes.category(category.id).random.title %></h3>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @recipes.category(category.id).random.category.name %></h6>
+            <p class="card-text"><small class="text-muted"><%= "par #{@recipes.category(category.id).random.author}" %></small></p>
+          </div>
           <% end %>
         </div>
       <% end %>
