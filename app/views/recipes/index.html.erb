@@ -1,7 +1,9 @@
-<h1><%= params[:category] %></h1>
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= link_to "#{recipe.title} - publié par #{recipe.user.username}", recipe_path(recipe) %></li>
-  <% end %>
-</ul>
+<%= render 'shared/searchbar' %>
 
+<% if params[:query] %>
+  <h1 class="page-title"><%= @recipes.length %> résultat(s) pour <%= params[:query] %></h1>
+<% else %>
+  <h1 class="page-title">Toutes les recettes</h1>
+<% end %>
+
+<%= render 'shared/recipeslist' %>

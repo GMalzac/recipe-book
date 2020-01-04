@@ -1,7 +1,6 @@
-<h1><%= @category.name %></h1>
+<%= render 'shared/searchbar' %>
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><%= link_to recipe.title, recipe_path(recipe) %></li>
-  <% end %>
-</ul>
+<h1 class="page-title"><%= "#{@recipes.length} #{@category.name}" %></h1>
+
+<%= render 'shared/recipeslist' %>
+

@@ -1,0 +1,15 @@
+<div class="recipes-list">
+  <div class="recipe-wrapper">
+    <% @recipes.each do |recipe| %>
+      <%= link_to(recipe, {class: "listed-recipe col-xs-12"}) do %>
+        <div class="card-recipe">
+          <%= cl_image_tag recipe.photo.key, height: 150, width: 200, crop: :fill %>
+          <div class="card-recipe-infos">
+            <h2><%= recipe.title %></h2>
+            <%= "publié par #{recipe.user.username}" %>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
