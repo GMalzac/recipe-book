@@ -5,6 +5,8 @@
     <div class="col-xs-12 col-md-6">
       <h2>Ingrédients</h2>
       <h3><%= @recipe.ingredients %></h3>
+      <h2>Recette</h2>
+      <h3><%= @recipe.description %></h3>
     </div>
     <div class="col-xs-12 col-md-6">
       <% if @recipe.photo.attached? %>
@@ -12,16 +14,12 @@
       <% else %>
         <img src="https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png" class="card-img-top" alt="<%= @recipe.title %>">
       <% end %>
+      <h2 class="comments">Commentaires</h2>
+      <h3>A venir...</h3>
     </div>
   </div>
   <div class="row recipe-content">
-    <div class="col-xs-12 col-md-8">
-      <h2>Recette</h2>
-      <h3><%= @recipe.description %></h3>
-    </div>
     <div class="col-xs-12 col-md-4">
-      <h2>Commentaires</h2>
-      <h3>A venir...</h3>
     </div>
   </div>
 
