@@ -12,7 +12,8 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @recipe = Recipe.new(user: current_user)
+    @recipe = Recipe.new(user: current_user, ingredients: "<ul><li></li></ul>", description: "<ul><li></li></ul>", photo: "<img src='https://www.agora-gallery.com/advice/wp-content/uploads/2015/10/image-placeholder.png'</img>")
+    @recipe.author = current_user.username if current_user
     authorize @recipe
   end
 
