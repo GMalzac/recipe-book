@@ -2,9 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Recipe, :type => :model do
 
-  before(:example) do
-    @recipe1 = create(:recipe)
-  end
+  let(:recipe_1) { build(:recipe) }
 
   describe "Associations" do
     it 'belongs_to user' do
@@ -20,7 +18,7 @@ RSpec.describe Recipe, :type => :model do
 
   describe 'Validations' do
     it "is valid with valid attributes" do
-      expect(@recipe1).to be_valid
+      expect(recipe_1).to be_valid
     end
 
     it "is not valid without title" do

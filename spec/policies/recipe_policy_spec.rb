@@ -1,5 +1,8 @@
 require 'rails_helper'
 
+# TO DO: write the policies here
+# Add a full end-to-end test (using capybara and maybe selenium)
+
 RSpec.describe RecipePolicy, type: :policy do
   let(:user) { User.new }
 

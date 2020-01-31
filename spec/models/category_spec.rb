@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Category, type: :model do
 
   before(:example) do
-    @category1 = create(:category)
+    @category1 = build(:category)
   end
 
   describe "Associations" do
@@ -24,6 +24,7 @@ RSpec.describe Category, type: :model do
     end
 
     it "has a unique name" do
+      create(:category)
       category2 = build(:category, name: "Desserts")
       expect(category2).to_not be_valid
     end
