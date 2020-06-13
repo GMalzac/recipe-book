@@ -34,11 +34,20 @@ a.category {
   text-decoration: none;
   color: #f67058;
   font-weight: 600;
+  @media(max-width: 721px) {
+    margin-bottom: 15px;
+  }
 }
 
 a.category:hover {
   text-decoration: none;
   color: white;
+}
+
+.card {
+  @media(max-width: 721px) {
+    margin-bottom: 15px;
+  }
 }
 
 #section-one {

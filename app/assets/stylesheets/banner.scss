@@ -22,11 +22,15 @@
 
 .banner-title {
   margin-bottom: 50px;
+  @media(max-width: 721px) {
+    text-align: center
+  }
 }
 
 .banner-search {
   justify-content: center !important;
   display: flex;
+  text-align: center !important,
 }
 
 .banner-add {

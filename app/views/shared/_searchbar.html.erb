@@ -1,4 +1,13 @@
-<%= form_tag recipes_path, method: :get, class: "form-inline search-component" do %>
+<%= form_tag recipes_path, method: :get, class: "form-inline search-component hidden-small" do %>
+  <%= text_field_tag :query,
+      params[:query],
+      class: "form-control search-field",
+      placeholder: "carottes, boeuf bourguignon, Manou..."
+  %>
+  <%= submit_tag "Rechercher", class: "btn search-button" %>
+<% end %>
+
+<%= form_tag recipes_path, method: :get, class: "form-group search-component hidden-medium" do %>
   <%= text_field_tag :query,
       params[:query],
       class: "form-control search-field",
