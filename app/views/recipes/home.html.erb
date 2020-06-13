@@ -54,7 +54,7 @@
     <h2>Un repas complet au hasard pour la 2 !</h2>
     <div class="card-deck">
       <% @categories.each do |category| %>
-        <div class="card" style="width: 18rem;">
+        <div class="card">
           <%= link_to(recipe_path(@recipes.category(category.id).random), {class: "card-link"}) do %>
           <% if @recipes.category(category.id).random.photo.attached? %>
             <div class="recipe-photo" style="background-image: url('<%= cl_image_path @recipes.category(category.id).random.photo.key %>');=""">
