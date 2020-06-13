@@ -9,6 +9,7 @@
     font-size: 16px;
   }
 }
+
 .recipe-title {
   margin-bottom: 50px;
   color: #40596A;
@@ -17,6 +18,12 @@
 
 .recipe-header {
   margin-bottom: 30px;
+}
+
+.search-container {
+  justify-content: center !important;
+  display: flex;
+  text-align: center !important,
 }
 
 .comments {
