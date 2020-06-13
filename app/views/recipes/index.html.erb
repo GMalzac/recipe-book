@@ -1,4 +1,6 @@
-<%= render 'shared/searchbar' %>
+<div class="search-container">
+  <%= render 'shared/searchbar' %>
+</div>
 
 <% if params[:query] %>
   <h1 class="page-title"><%= @recipes.length %> résultat(s) pour <%= params[:query] %></h1>
