@@ -74,7 +74,7 @@ if defined?(RecipesController)
         describe "with valid parameters" do
           it "should return redirect" do
             post :create, params: { :recipe => valid_attributes }
-            expect(response.status).to eq 302
+            expect(response.status).to eq 402, "expected response to be 302, got #{response.status}"
           end
           it 'redirects to recipes#show' do
             post :create, params: {:recipe => valid_attributes }
